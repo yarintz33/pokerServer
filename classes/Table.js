@@ -3,22 +3,31 @@ import Dealer from './Dealer.js';
 import Round from './Round.js';
 
 export default class Table {
-    //#numOfChairs;
+    #numOfChairs;
     constructor(numOfChairs) { 
-        this.players = [];
+        this.inRoom = [];
+        this.chairs = [];
         this.dealer = new Dealer();
-        //this.#numOfChairs = numOfChairs;
+        this.#numOfChairs = numOfChairs;
      }
      startRound(){
-        let round = new Round(this.dealer, this.players);
+        let round = new Round(this.dealer, this.chairs);
         round.start();
     }
 
-    addPlayer(player, position){
-        this.players[position] = player;
+    addPlayer99(player, position){
+        if(this.chairs[position] == null){
+            this.chairs[position] = player;
+        }else{
+            //handle
+        }
     }
 
     removePlayer(position){
-        this.players[position] = null;
+        this.chairs[position] = null;
+    }
+
+    get numOfChairs(){
+        return this.#numOfChairs;
     }
   }

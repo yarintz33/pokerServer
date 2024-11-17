@@ -3,8 +3,11 @@ export default class Player{
     #isParticipant;
     #cards;
     #budget;
-    constructor(){
+    #name;
+    constructor(playerName, budget){
+        this.#budget = budget;
         this.#isParticipant = false;
+        this.#name = playerName;
     }
 
     get isParticipant(){

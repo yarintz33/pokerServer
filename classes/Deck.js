@@ -20,7 +20,6 @@ export default class Deck {
 
     getCard(){
         let cardIndex = Math.floor(Math.random() * this.#remianedCards);
-        console.log(cardIndex);
         this.swap(this.#cards, cardIndex, this.#remianedCards - 1);
         this.#remianedCards -= 1;
         return cardIndex;
